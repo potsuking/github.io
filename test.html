@@ -2,24 +2,29 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>HLS Player Example</title>
 </head>
 <body>
-    <video id="videoPlayer" controls></video>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <center>
+      <video autoplay playsinline controls id="video" controls></video>
+          
+    </center>
     <script>
-        if (Hls.isSupported()) {
-            var video = document.getElementById('videoPlayer');
-            var hls = new Hls();
-            hls.loadSource('https://www.mvptv24.com/liveedge/live210/chunklist_w1610956370_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjc5NjAwNjQ1Jndvd3phdG9rZW5lbmR0aW1lPTE2Nzk2MTE0NDUmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMjEwJndvd3phdG9rZW5oYXNoPUdybDF0WDVBQThLUlFTc09mSXB2elVyWFllenhyTThGTzN6anNId19Zd0E9.m3u8?site=swtv1&ch=LIVE210&pm=P');
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                video.play();
-            });
-        }
-    </script>
+        if(Hls.isSupported()) {
+          var video = document.getElementById('video');
+          var hls = new Hls();
+quelle = 'https://ch22-livecdn.spotvnow.co.kr/ch22/spt22_mobile.smil/chunklist_b3692000.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2gyMi1saXZlY2RuLnNwb3R2bm93LmNvLmtyL2NoMjIvc3B0MjJfbW9iaWxlLnNtaWwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY3OTY4ODYwMH19fV19&Signature=MfqmDyTP9uCG2ocKqfv4Rrk30gSoQIuMJaykiXKwk8x8cgkoV0Pt6aL5zk%7EEv1Er1nQ3tbvbsvTzvrhs-4jipNyL1cQbj0ifqqS5R37AgbgyIt0wF0OnjMJnWgYo7Pj8H4mttFqvORbqQsH9hcs0FFG-ONySGKjRVIgKDLy4%7E%7EX8Z7GLKAKHtqUp-lepdS9056asrss09MVfI1E6iRD0XLkKg1dV8zsJyU53PVqk4KYy4V7RA776REdOy3uMDjWNaqwa3hQElwueSpNKmScmcMH4U2pvZpBMV0q4k2N3oPQpKNAnO6jRYfGdLtVcTCn3WQsYiXWGCkCxVBkxpRWQWg__&Key-Pair-Id=APKAI2M6I5EDDXED7H5Q';
+			//quelle = 'http://linux-app.tv:6204/live/21164920/31520888/23808.m3u8';
+			hls.loadSource(quelle);
+			
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+        });
+       }
+      </script>
     <style>
-    #videoPlayer {
+    #video {
         position: fixed;
         top: 0;
         left: 0;
