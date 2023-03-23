@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HLS Player Example</title>
+</head>
+<body>
+    <video id="videoPlayer" controls></video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        if (Hls.isSupported()) {
+            var video = document.getElementById('videoPlayer');
+            var hls = new Hls();
+            hls.loadSource('https://ch17-livecdn.spotvnow.co.kr/ch17/spt17_mobile.smil/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2gxNy1saXZlY2RuLnNwb3R2bm93LmNvLmtyL2NoMTcvc3B0MTdfbW9iaWxlLnNtaWwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY3OTY3NzUwMH19fV19&Signature=gwmquvcWkt3Lc7plRrzvm5-2SyFXisxu9u1Yc7BbI1Lxem%7EOlaI7vY-kimcURVxyfhxebi545n3K1BXUZTbZ5Hb7gdNklerkjrpvWzYtxBt7AoxVjUgN6UelWZghKxjiuI0fejkxveT-SbGHiW8-ze4OfgWWasslGs7buwxLo68w1w73OR7YwOVbFw3YmFg%7EK4S-5AV5Bc8yI0sETF3DJZSl1Ezrq613fOOQsmFiYPvmjimP3ftmJLnb10t7uvoTv0EyLsB-tKbYy6Jw94i6LmYCq9SLEW%7EEkXzK1dmNiLM27DR%7Ez62rf4TVnS%7EApdn28OfEaU9Cc2ZZpnTMYkLDwg__&Key-Pair-Id=APKAI2M6I5EDDXED7H5Q');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+            });
+        }
+    </script>
+    <style>
+    #videoPlayer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</body>
+</html>
