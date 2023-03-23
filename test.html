@@ -11,7 +11,7 @@
         if (Hls.isSupported()) {
             var video = document.getElementById('videoPlayer');
             var hls = new Hls();
-            hls.loadSource('https://ch17-livecdn.spotvnow.co.kr/ch17/spt17_mobile.smil/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2gxNy1saXZlY2RuLnNwb3R2bm93LmNvLmtyL2NoMTcvc3B0MTdfbW9iaWxlLnNtaWwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY3OTY3NzUwMH19fV19&Signature=gwmquvcWkt3Lc7plRrzvm5-2SyFXisxu9u1Yc7BbI1Lxem%7EOlaI7vY-kimcURVxyfhxebi545n3K1BXUZTbZ5Hb7gdNklerkjrpvWzYtxBt7AoxVjUgN6UelWZghKxjiuI0fejkxveT-SbGHiW8-ze4OfgWWasslGs7buwxLo68w1w73OR7YwOVbFw3YmFg%7EK4S-5AV5Bc8yI0sETF3DJZSl1Ezrq613fOOQsmFiYPvmjimP3ftmJLnb10t7uvoTv0EyLsB-tKbYy6Jw94i6LmYCq9SLEW%7EEkXzK1dmNiLM27DR%7Ez62rf4TVnS%7EApdn28OfEaU9Cc2ZZpnTMYkLDwg__&Key-Pair-Id=APKAI2M6I5EDDXED7H5Q');
+            hls.loadSource('https://ch19-livecdn.spotvnow.co.kr/ch19/spt19_mobile.smil/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2gxOS1saXZlY2RuLnNwb3R2bm93LmNvLmtyL2NoMTkvc3B0MTlfbW9iaWxlLnNtaWwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY3OTY4NzEwMH19fV19&Signature=ee0BRv0avAeRL00jq0C2Y5flQtYiW9ZlVSGByL9uNrVnBWNyiX5ngEwKQ2BsfUPA8k--AWmlRmAN8aLHHXpDDZ2PcU%7ElHp6MmZoZAzwYl11ub-ZSB3Mjo2fL0tOg4n2vVGXMORmwbaTdQ1gM6rVf9Obp-h203jit8D-YLcpLeURhq0lDPsh3E6mbYYH6fgN-DLJXYUaVTk9GXhePjaR%7Ea-7OgTgAEgWuCs8uSHRX8pKmSs1iNcfbypE8tupYqPuoXl9EbGVjFOlTyllOZiOPPmehhL16FfsGJ8SI7p4OhmuNEezfxVkMZcIdgtaJbSHZ1NmNVq8EcKvilNm7KbeVnA__&Key-Pair-Id=APKAI2M6I5EDDXED7H5Q');
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, function () {
                 video.play();
