@@ -1,36 +1,31 @@
 <!DOCTYPE html>
-	<head>
-		<title>TV</title>
-	</head>
-	<body>
-		<script src="https://hls-js-7b2d34bd-841e-4b02-a50a-7a24e015acb7.netlify.com/dist/hls.js"></script>
-      <center>
-          <h1>TV 2020</h1>
-          <video width="800" autoplay playsinline controls id="video" controls></video>
-      </center>
-
-      <script>
-        if(Hls.isSupported()) {
-          var video = document.getElementById('video');
-          var hls = new Hls();
-quelle = 'https://www.mvptv24.com/liveedge/live210/chunklist_w1610956370_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjc5NjAwNjQ1Jndvd3phdG9rZW5lbmR0aW1lPTE2Nzk2MTE0NDUmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMjEwJndvd3phdG9rZW5oYXNoPUdybDF0WDVBQThLUlFTc09mSXB2elVyWFllenhyTThGTzN6anNId19Zd0E9.m3u8?site=swtv1&ch=LIVE210&pm=P';
-			//quelle = 'http://linux-app.tv:6204/live/21164920/31520888/23808.m3u8';
-			hls.loadSource(quelle);
-			
-          hls.attachMedia(video);
-          hls.on(Hls.Events.MANIFEST_PARSED,function() {
-            video.play();
-        });
-       }
-       // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
-       // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
-       // This is using the built-in support of the plain video element, without using hls.js.
-        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-          video.src = 'https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8';
-          video.addEventListener('canplay',function() {
-            video.play();
-          });
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HLS Player Example</title>
+</head>
+<body>
+    <video id="videoPlayer" controls></video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        if (Hls.isSupported()) {
+            var video = document.getElementById('videoPlayer');
+            var hls = new Hls();
+            hls.loadSource('https://ch17-livecdn.spotvnow.co.kr/ch17/spt17_mobile.smil/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2gxNy1saXZlY2RuLnNwb3R2bm93LmNvLmtyL2NoMTcvc3B0MTdfbW9iaWxlLnNtaWwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY3OTY3NzUwMH19fV19&Signature=gwmquvcWkt3Lc7plRrzvm5-2SyFXisxu9u1Yc7BbI1Lxem%7EOlaI7vY-kimcURVxyfhxebi545n3K1BXUZTbZ5Hb7gdNklerkjrpvWzYtxBt7AoxVjUgN6UelWZghKxjiuI0fejkxveT-SbGHiW8-ze4OfgWWasslGs7buwxLo68w1w73OR7YwOVbFw3YmFg%7EK4S-5AV5Bc8yI0sETF3DJZSl1Ezrq613fOOQsmFiYPvmjimP3ftmJLnb10t7uvoTv0EyLsB-tKbYy6Jw94i6LmYCq9SLEW%7EEkXzK1dmNiLM27DR%7Ez62rf4TVnS%7EApdn28OfEaU9Cc2ZZpnTMYkLDwg__&Key-Pair-Id=APKAI2M6I5EDDXED7H5Q');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+            });
         }
-      </script>
+    </script>
+    <style>
+    #videoPlayer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
 </body>
 </html>
