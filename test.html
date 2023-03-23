@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>M3U8 Streaming Example</title>
-  </head>
-  <body>
-    <video controls>
-      <source src="https://www.mvptv24.com/liveedge/live210/chunklist_w1610956370_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjc5NjAwNjQ1Jndvd3phdG9rZW5lbmR0aW1lPTE2Nzk2MTE0NDUmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMjEwJndvd3phdG9rZW5oYXNoPUdybDF0WDVBQThLUlFTc09mSXB2elVyWFllenhyTThGTzN6anNId19Zd0E9.m3u8?site=swtv1&ch=LIVE210&pm=P" type="application/x-mpegURL">
-    </video>
-  </body>
+	<head>
+		<title>TV</title>
+	</head>
+	<body>
+		<script src="https://hls-js-7b2d34bd-841e-4b02-a50a-7a24e015acb7.netlify.com/dist/hls.js"></script>
+      <center>
+          <h1>TV 2020</h1>
+          <video width="800" autoplay playsinline controls id="video" controls></video>
+      </center>
+
+      <script>
+        if(Hls.isSupported()) {
+          var video = document.getElementById('video');
+          var hls = new Hls();
+quelle = 'https://mcdn.daserste.de/daserste/de/master.m3u8';
+			//quelle = 'http://linux-app.tv:6204/live/21164920/31520888/23808.m3u8';
+			hls.loadSource(quelle);
+			
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+        });
+       }
+       // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+       // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
+       // This is using the built-in support of the plain video element, without using hls.js.
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = 'https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8';
+          video.addEventListener('canplay',function() {
+            video.play();
+          });
+        }
+      </script>
+</body>
 </html>
