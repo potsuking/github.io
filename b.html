@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset= "UTF-8">
+</head>
+<body>
+<style type="text/css">
+.wrapper > div{
+  border-color:black;border-style:solid;border-width:1px;border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;font-weight:normal;overflow:hidden;margin: -1px 0 0 -1px;padding:5px 5px;word-break:normal;text-align:center;
+} 
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script language="JavaScript">
+   function callVideo1(ch, videonumber)
+  {
+     if(Hls.isSupported()) {
+    var video = document.getElementById('video'+videonumber);
+    var hls = new Hls();
+    hls.loadSource('https://ch19-livecdn.spotvnow.co.kr/ch19/spt19_mobile.smil/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2gxOS1saXZlY2RuLnNwb3R2bm93LmNvLmtyL2NoMTkvc3B0MTlfbW9iaWxlLnNtaWwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY3OTY4NzEwMH19fV19&Signature=ee0BRv0avAeRL00jq0C2Y5flQtYiW9ZlVSGByL9uNrVnBWNyiX5ngEwKQ2BsfUPA8k--AWmlRmAN8aLHHXpDDZ2PcU%7ElHp6MmZoZAzwYl11ub-ZSB3Mjo2fL0tOg4n2vVGXMORmwbaTdQ1gM6rVf9Obp-h203jit8D-YLcpLeURhq0lDPsh3E6mbYYH6fgN-DLJXYUaVTk9GXhePjaR%7Ea-7OgTgAEgWuCs8uSHRX8pKmSs1iNcfbypE8tupYqPuoXl9EbGVjFOlTyllOZiOPPmehhL16FfsGJ8SI7p4OhmuNEezfxVkMZcIdgtaJbSHZ1NmNVq8EcKvilNm7KbeVnA__&Key-Pair-Id=APKAI2M6I5EDDXED7H5Q');
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      video.play();
+      });
+    }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = link;
+    video.addEventListener('canplay',function() {
+      video.play();
+      });
+    }
+  }
+
+</script>
+  <div class="wrapper" >
+    <div class="tg-0pky">1<br>
+      <video id="video1" width="100%"></video>
+      <script>
+      callVideo1(0, '1');
+      </script>
+    </div>
+
+</body>
+</html>
