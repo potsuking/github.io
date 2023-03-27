@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-	<head>		
-	</head>
-	<body>
-		<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-      <center>
-          <video autoplay playsinline controls id="video" autoplay controls></video>
-      </center>
-
-      <script>
-        if(Hls.isSupported()) {
-          var video = document.getElementById('video');
-          var hls = new Hls();
-quelle = 'https://live1.sun365.tv/vod/live51/playlist.m3u8';
-			hls.loadSource(quelle);
-			
-          hls.attachMedia(video);
-          hls.on(Hls.Events.MANIFEST_PARSED,function() {
-            video.play();
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HLS Video Player</title>
+    <!-- hls.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  </head>
+  <body>
+    <video id="video" controls></video>
+    <script>
+      var video = document.getElementById('video');
+      var url = 'https://ch30-livecdn.spotvnow.co.kr/ch30/spt30_mobile.smil/playlist.m3u8?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2gzMC1saXZlY2RuLnNwb3R2bm93LmNvLmtyL2NoMzAvc3B0MzBfbW9iaWxlLnNtaWwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY4MDAyOTEwMH19fV19&Signature=BjmzQ3%7EmEtrZLFp51lbTJyjY61JlEUXAzSG-aDRp6X8NVBsFKtK3QPzWeUI3H6FUzIWRvyFkoLWSAU%7E1C%7ERPMzKROpmQA6LuWzOyafVrn1vB%7EK9w-NtBPXhp9aGE68LiX4-hdJhljgW4viumpq0rJo%7Er%7EOOE3p1QBO1xM51KGilKVExIFixYX%7EhaUpl7wk6frA5l4bvommOu3CxBt9i-8s%7EETG6td2qNg3FYZOAbhl3nJq4aWJfv1BGfPLbKjZFizGJxEcuCpFAYwkXYTBmPfbs1ZrSuNmYpQzHrkRnPXeaAPFdwU8gaySKVRcnC7fsb2phOfY9HHdLZ8y5hL%7Evw7Q__&Key-Pair-Id=APKAI2M6I5EDDXED7H5Q';
+      if(Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+          video.play();
+      });
+     }
+     else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = url;
+        video.addEventListener('loadedmetadata',function() {
+          video.play();
         });
-       }
-        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-          video.src = 'https://live1.sun365.tv/vod/live51/playlist.m3u8';
-          video.addEventListener('canplay',function() {
-            video.play();
-          });
-        }
-      </script>
-	<style>
+     }
+    </script>
+        <style>
     #video {
         position: fixed;
         top: 0;
@@ -35,5 +35,5 @@ quelle = 'https://live1.sun365.tv/vod/live51/playlist.m3u8';
         height: 100%;
     }
 </style>
-</body>
+  </body>
 </html>
