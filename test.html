@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <video id="video" controls></video>
     <script>
       var video = document.getElementById('video');
-      var url = 'https://www.yjtv007.com/liveedge/live185/chunklist_w1362839844_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjc5OTUxMTUxJndvd3phdG9rZW5lbmR0aW1lPTE2Nzk5NjE5NTEmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMTg1Jndvd3phdG9rZW5oYXNoPTQ5LTYtM1dGSWNOTUE5Z0dYempiZlE1bkItc184WWR6VkFPTm81U1hZLXc9.m3u8?site=swtv1&ch=LIVE185&pm=P';
+      var url = 'https://www.memetv1.com/liveedge/live05/chunklist_w43140625_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjgwMDEyMjM1Jndvd3phdG9rZW5lbmR0aW1lPTE2ODAwMjMwMzUmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMDUmd293emF0b2tlbmhhc2g9VUpuYlVyOTBLNjZYemM1TEk2SzN0M3RhdGgydjdJRnM5a3VEUmRlOTRDQT0=.m3u8?site=swtv1&ch=live05&pm=P';
       if(Hls.isSupported()) {
         var hls = new Hls();
         hls.loadSource(url);
@@ -20,7 +20,7 @@
       });
      }
      else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = url;
+        video.src = 'https://www.memetv1.com/liveedge/live05/chunklist_w43140625_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjgwMDEyMjM1Jndvd3phdG9rZW5lbmR0aW1lPTE2ODAwMjMwMzUmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMDUmd293emF0b2tlbmhhc2g9VUpuYlVyOTBLNjZYemM1TEk2SzN0M3RhdGgydjdJRnM5a3VEUmRlOTRDQT0=.m3u8?site=swtv1&ch=live05&pm=P';
         video.addEventListener('loadedmetadata',function() {
           video.play();
         });
