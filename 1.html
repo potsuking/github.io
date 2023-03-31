@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HLS Video Player</title>
+    <!-- hls.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  </head>
+  <body>
+    <video id="video" controls></video>
+    <script>
+      var video = document.getElementById('video');
+      var url = 'https://www.memetv1.com/liveedge/live05/chunklist_w425319740_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjgwMjcwMDM3Jndvd3phdG9rZW5lbmR0aW1lPTE2ODAyODA4Mzcmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMDUmd293emF0b2tlbmhhc2g9M2dDTmx3Z2p5TjFZYjhKZHJaeGdkMllaZ2tKTGhQdGMyUGtzcEg2NUZqZz0=.m3u8?site=swtv1&ch=live05&pm=P';
+      if(Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+          video.play();
+      });
+     }
+     else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = 'https://www.memetv1.com/liveedge/live05/chunklist_w425319740_tkd293emF0b2tlbnN0YXJ0dGltZT0xNjgwMjcwMDM3Jndvd3phdG9rZW5lbmR0aW1lPTE2ODAyODA4Mzcmd293emF0b2tlbkN1c3RvbVBhcmFtZXRlcj1saXZlMDUmd293emF0b2tlbmhhc2g9M2dDTmx3Z2p5TjFZYjhKZHJaeGdkMllaZ2tKTGhQdGMyUGtzcEg2NUZqZz0=.m3u8?site=swtv1&ch=live05&pm=P';
+        video.addEventListener('loadedmetadata',function() {
+          video.play();
+        });
+     }
+    </script>
+    <style>
+    #video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+  </body>
+</html>
